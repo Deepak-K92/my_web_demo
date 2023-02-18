@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
       initialRoute: AppRouters.directing,
       routes: {
         AppRouters.directing: (context) => const Directing(),
+        AppRouters.login: (context) => const Directing(),
       },
     );
   }

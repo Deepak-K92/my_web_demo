@@ -7,6 +7,7 @@ import 'package:my_web_demo/static/app_strings.dart';
 
 import '../common/styles/app_colors.dart';
 import '../common/widgets/custom_2_colors_button_widget.dart';
+import 'pages/login.dart';
 
 class Directing extends StatefulWidget {
   const Directing({super.key});
@@ -16,6 +17,16 @@ class Directing extends StatefulWidget {
 }
 
 class _DirectingState extends State<Directing> {
+  late ScrollController _scrollController;
+  late PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController(initialScrollOffset: 2.0);
+    _pageController = PageController(initialPage: 0);
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -33,21 +44,37 @@ class _DirectingState extends State<Directing> {
       body: BackGroundWidget(
         context: context,
         widget: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // const IconLogoWidget(size: 150),
-              _textLayout(size: size),
-              Padding(padding: EdgeInsets.only(top: size.aspectRatio * 20)),
-              Custom2ColorsButtonWidget(
-                  size: size,
-                  primary: Colors.black,
-                  secondary: AppColors.kPrimaryColor,
-                  text: 'Login',
-                  onPressed: () {},
-                  textColor: AppColors.kPrimaryColor)
-            ],
+          child: Scrollbar(
+            thickness: 10,
+            interactive: true,
+            controller: _scrollController,
+            child: PageView(
+              controller: _pageController,
+              scrollDirection: Axis.vertical,
+              pageSnapping: true,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    IconLogoWidget(size: size.aspectRatio * 100),
+                    Padding(
+                        padding: EdgeInsets.only(top: size.aspectRatio * 20)),
+                    _textLayout(size: size),
+                    Padding(
+                        padding: EdgeInsets.only(top: size.aspectRatio * 20)),
+                    Custom2ColorsButtonWidget(
+                        size: size,
+                        primary: AppColors.kSecondaryColor,
+                        secondary: AppColors.kPrimaryAccemntColor,
+                        text: AppStrings.getStarted,
+                        onPressed: () {},
+                        textColor: AppColors.kPrimaryAccemntColor)
+                  ],
+                ),
+                LoginPage(size: size),
+              ],
+            ),
           ),
         ),
       ),
@@ -60,7 +87,7 @@ _textLayout({required Size size}) {
     text: TextSpan(
       children: [
         TextSpan(
-          text: AppStrings.hello.giveGap(),
+          text: AppStrings.its.giveGap(),
           style: AppCustomTextStyles().mainHeaderTextStyle.copyWith(
             color: Colors.white,
             fontSize: size.aspectRatio * 50,

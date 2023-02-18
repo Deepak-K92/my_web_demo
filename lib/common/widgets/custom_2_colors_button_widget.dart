@@ -44,7 +44,8 @@ class _Custom2ColorsButtonWidgetState extends State<Custom2ColorsButtonWidget> {
           vertical: size.height * 0.010, horizontal: size.width * .05),
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(size.aspectRatio * 50),
-          side: BorderSide(color: widget.secondary)),
+          side: BorderSide(
+              color: widget.secondary, width: size.aspectRatio * 1.5)),
       child: Padding(
         padding: EdgeInsets.all(size.aspectRatio * 3),
         child: Text(
