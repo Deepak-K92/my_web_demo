@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_web_demo/common/styles/app_colors.dart';
+import 'package:my_web_demo/dashboard/view/dashboard_view.dart';
 import 'package:my_web_demo/screens/directing.dart';
 import 'package:my_web_demo/static/app_routers.dart';
 import 'package:my_web_demo/static/app_strings.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       initialRoute: AppRouters.directing,
       routes: {
         AppRouters.directing: (context) => const Directing(),
+        AppRouters.dashboard: (context) => const DashboardView(),
       },
     );
   }

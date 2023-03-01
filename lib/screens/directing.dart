@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_web_demo/common/styles/styles.dart';
 import 'package:my_web_demo/common/widgets/icon_logo.dart';
 import 'package:my_web_demo/screens/widgets/background_widget.dart';
+import 'package:my_web_demo/static/app_routers.dart';
 import 'package:my_web_demo/static/app_strings.dart';
 
 import '../common/styles/app_colors.dart';
@@ -45,7 +46,8 @@ class _DirectingState extends State<Directing> {
                   primary: Colors.black,
                   secondary: AppColors.kPrimaryColor,
                   text: 'Login',
-                  onPressed: () {},
+                  onPressed: () =>
+                      Navigator.pushNamed(context, AppRouters.dashboard),
                   textColor: AppColors.kPrimaryColor)
             ],
           ),
