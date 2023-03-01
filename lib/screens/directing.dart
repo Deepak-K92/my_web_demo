@@ -19,12 +19,16 @@ class Directing extends StatefulWidget {
 class _DirectingState extends State<Directing> {
   late ScrollController _scrollController;
   late PageController _pageController;
+  late TextEditingController usernameController, passwordController;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController(initialScrollOffset: 2.0);
     _pageController = PageController(initialPage: 0);
+    usernameController = TextEditingController();
+    passwordController = TextEditingController();
   }
 
   @override
@@ -72,7 +76,15 @@ class _DirectingState extends State<Directing> {
                         textColor: AppColors.kPrimaryAccemntColor)
                   ],
                 ),
-                LoginPage(size: size),
+                Form(
+                  child: LoginPage(
+                    key: _formKey,
+                    size: size,
+                    usernameController: usernameController,
+                    passwordController: passwordController,
+                    onSubmit: () {},
+                  ),
+                )
               ],
             ),
           ),
