@@ -23,7 +23,7 @@ class IconLogoWidget extends StatelessWidget {
         minRadius: size,
         backgroundColor: AppColors.kPrimaryColor,
         child: Padding(
-          padding: EdgeInsets.all(1),
+          padding: const EdgeInsets.all(1),
           child: Icon(
             Icons.ac_unit_sharp,
             color: Colors.black,
