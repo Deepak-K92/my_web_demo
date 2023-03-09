@@ -47,7 +47,7 @@ class _DashboardViewState extends State<DashboardView> {
           child: PageView(
             controller: pageController,
             scrollDirection: Axis.vertical,
-            children: <Widget>[
+            children: const <Widget>[
               // _firstPage(context, color: Colors.yellow, text: 'Page 1'),
               // _firstPage(context, color: Colors.orange, text: 'Page 2'),
               Dash1(),
@@ -59,19 +59,19 @@ class _DashboardViewState extends State<DashboardView> {
   }
 }
 
-Widget _firstPage(BuildContext context,
-    {required Color color, required String text}) {
-  return SizedBox(
-    height: 600,
-    width: 500,
-    child: Container(
-      color: color,
-      child: Center(
-        child: Text(text),
-      ),
-    ),
-  );
-}
+// Widget _firstPage(BuildContext context,
+//     {required Color color, required String text}) {
+//   return SizedBox(
+//     height: 600,
+//     width: 500,
+//     child: Container(
+//       color: color,
+//       child: Center(
+//         child: Text(text),
+//       ),
+//     ),
+//   );
+// }
 
 class DashDrawer extends StatelessWidget {
   final BuildContext context;
