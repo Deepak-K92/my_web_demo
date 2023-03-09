@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_web_demo/common/styles/app_colors.dart';
 import 'package:my_web_demo/common/styles/styles.dart';
+import 'package:my_web_demo/screens/pages/dash1.dart';
 import 'package:my_web_demo/static/app_strings.dart';
 
 class DashboardView extends StatefulWidget {
@@ -33,9 +34,9 @@ class _DashboardViewState extends State<DashboardView> {
         title: const Text(AppStrings.dashboard),
       ),
       body: Scrollbar(
-        isAlwaysShown: true,
+        // isAlwaysShown: true,
         interactive: true,
-        hoverThickness: 10,
+        // hoverThickness: 10,
         trackVisibility: true,
         controller: scrollController,
         child: ScrollConfiguration(
@@ -46,9 +47,10 @@ class _DashboardViewState extends State<DashboardView> {
           child: PageView(
             controller: pageController,
             scrollDirection: Axis.vertical,
-            children: [
-              _firstPage(context, color: Colors.yellow, text: 'Page 1'),
-              _firstPage(context, color: Colors.orange, text: 'Page 2'),
+            children: <Widget>[
+              // _firstPage(context, color: Colors.yellow, text: 'Page 1'),
+              // _firstPage(context, color: Colors.orange, text: 'Page 2'),
+              Dash1(),
             ],
           ),
         ),
@@ -57,7 +59,8 @@ class _DashboardViewState extends State<DashboardView> {
   }
 }
 
-_firstPage(BuildContext context, {required Color color, required String text}) {
+Widget _firstPage(BuildContext context,
+    {required Color color, required String text}) {
   return SizedBox(
     height: 600,
     width: 500,
